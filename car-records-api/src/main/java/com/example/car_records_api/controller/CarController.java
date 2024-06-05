@@ -25,4 +25,11 @@ public class CarController {
         Car car = carService.getCarById(id);
         return ResponseEntity.ok(car);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCar(@PathVariable UUID id) {
+        carService.deleteCarById(id);
+        return ResponseEntity.ok("Account deleted");
+
+    }
+
 }

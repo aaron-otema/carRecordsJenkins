@@ -25,4 +25,11 @@ public class CarServiceImpl implements CarService {
 
         return car;
     }
+
+    @Override
+    public Car deleteCarById(UUID id) {
+        Car car = carRepository.findById(id).orElseThrow(() -> new RuntimeException("Car not found"));
+        carRepository.delete(car);
+        return car;
+    }
 }
