@@ -4,6 +4,8 @@ import com.example.car_records_api.model.Car;
 import com.example.car_records_api.repository.CarRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class CarServiceImpl implements CarService {
     private final CarRepository carRepository;
@@ -15,5 +17,12 @@ public class CarServiceImpl implements CarService {
     @Override
     public Car createCar(Car car) {
         return carRepository.save(car);
+    }
+
+    @Override
+    public Car getCarById(UUID id) {
+        Car car = carRepository.findById(id).orElseThrow(() -> new RuntimeException("Car not found"));
+
+        return car;
     }
 }
