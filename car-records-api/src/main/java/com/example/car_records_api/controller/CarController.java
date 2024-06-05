@@ -31,5 +31,12 @@ public class CarController {
         return ResponseEntity.ok("Account deleted");
 
     }
+    @PutMapping("/{id}/update")
+    public ResponseEntity<Car> updateCar(@PathVariable UUID id, @RequestBody Car car) {
+        String make = car.getMake();
+        String model = car.getModel();
+        return ResponseEntity.ok(car);
+
+    }
 
 }

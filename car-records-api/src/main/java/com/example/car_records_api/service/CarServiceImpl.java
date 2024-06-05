@@ -32,4 +32,14 @@ public class CarServiceImpl implements CarService {
         carRepository.delete(car);
         return car;
     }
+
+    @Override
+    public Car updateCar(UUID id, String make, String model) {
+        Car car = carRepository.findById(id).orElseThrow(() -> new RuntimeException("Car not found"));
+        car.setMake(make);
+        car.setModel(model);
+
+        return carRepository.save(car);
+    }
+
 }

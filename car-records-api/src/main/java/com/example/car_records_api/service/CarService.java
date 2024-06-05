@@ -8,5 +8,7 @@ public interface CarService {
     Car createCar(Car car);
     Car getCarById(UUID id);
     Car deleteCarById(UUID id);
+    Car updateCar(UUID id, String make, String model);
+
 
 }
